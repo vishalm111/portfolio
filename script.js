@@ -484,8 +484,8 @@ function initSensorDemo() {
       return padX + (idx / (pointsCount - 1)) * graphW;
     }
 
-    // Draw Grid Lines
-    ctx.strokeStyle = '#E4E4E7';
+    // Draw Grid Lines (Pitch-Black / Swiss Crimson Theme)
+    ctx.strokeStyle = '#262626';
     ctx.lineWidth = 1;
     for (let v = 15; v <= 50; v += 10) {
       const y = getY(v);
@@ -494,25 +494,25 @@ function initSensorDemo() {
       ctx.lineTo(w - padX, y);
       ctx.stroke();
 
-      ctx.fillStyle = '#A1A1AA';
+      ctx.fillStyle = '#737373';
       ctx.font = '10px JetBrains Mono';
       ctx.fillText(`${v}%`, 8, y + 3);
     }
 
     // Draw Threshold Line (MADP 28%)
     const threshY = getY(thresholdVal);
-    ctx.strokeStyle = '#A1A1AA';
+    ctx.strokeStyle = '#52525B';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(padX, threshY);
     ctx.lineTo(w - padX, threshY);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#71717A';
-    ctx.fillText('MADP Limit (28%)', w - padX - 110, threshY - 6);
+    ctx.fillStyle = '#A3A3A3';
+    ctx.fillText('MADP LIMIT (28%)', w - padX - 110, threshY - 6);
 
-    // Draw Raw Noisy Sensor Line (Subtle Gray)
-    ctx.strokeStyle = '#A1A1AA';
+    // Draw Raw Noisy Sensor Line (Muted Zinc)
+    ctx.strokeStyle = '#52525B';
     ctx.lineWidth = 1.2;
     ctx.beginPath();
     for (let i = 0; i < pointsCount; i++) {
@@ -523,9 +523,9 @@ function initSensorDemo() {
     }
     ctx.stroke();
 
-    // Draw Stabilized Filtered Line (Solid Charcoal Black)
-    ctx.strokeStyle = '#18181B';
-    ctx.lineWidth = 2.4;
+    // Draw Stabilized Filtered Line (Bold Crimson Red)
+    ctx.strokeStyle = '#B91C1C';
+    ctx.lineWidth = 2.8;
     ctx.beginPath();
     for (let i = 0; i < pointsCount; i++) {
       const x = getX(i);
