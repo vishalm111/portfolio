@@ -31,13 +31,25 @@ A modern, high-performance portfolio website built for **Vishal M** ([@vishalm11
 
 ```
 Portfolio/
-├── index.html        # Semantic HTML5 architecture & markup
-├── style.css         # Modern CSS custom properties, glassmorphism, responsive grid
-├── script.js         # Interactive filtering, search, modal dialogs, and canvas demos
+├── index.html               # Semantic HTML5 architecture & markup
+├── style.css                # Modern Swiss-editorial CSS styling & responsive grid
+├── script.js                # Interactive filtering, search, modal dialogs, and canvas demos
 ├── assets/
-│   └── avatar.png    # High-resolution profile avatar
-└── README.md         # Documentation & deployment guide
+│   ├── avatar.png           # High-resolution profile avatar
+│   └── vishal-m-resume.pdf  # Official resume PDF
+└── README.md                # Documentation & deployment guide
 ```
+
+---
+
+## 📬 Contact & Channels
+
+- **Phone / WhatsApp:** [+91 8904466631](tel:+918904466631)
+- **Email:** [vishalmv486@gmail.com](mailto:vishalmv486@gmail.com)
+- **LinkedIn:** [linkedin.com/in/vishal-m-98a0a530b](https://www.linkedin.com/in/vishal-m-98a0a530b)
+- **GitHub:** [github.com/vishalm111](https://github.com/vishalm111)
+- **Location:** Bengaluru, Karnataka, India
+- **Resume:** [Download Official Resume (PDF)](assets/vishal-m-resume.pdf)
 
 ---
 

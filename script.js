@@ -29,11 +29,12 @@ function initDynamicTyping() {
   if (!roleEl) return;
 
   const roles = [
-    'Aspiring Data Scientist',
-    'Data Analyst',
-    'Machine Learning Engineer',
-    'Power BI Specialist',
-    'Deep Learning Practitioner'
+    'M.Sc. Data Science Candidate',
+    'Machine Learning Practitioner',
+    'B.Sc. CS & Statistics',
+    'Power BI & Analytics Specialist',
+    'AI Systems & Deep Learning',
+    'Aspiring Data Scientist'
   ];
 
   let roleIdx = 0;

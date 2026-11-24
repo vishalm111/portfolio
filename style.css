@@ -1712,4 +1712,8 @@ button, input, textarea, select {
   .footer-poster-title {
     font-size: 3.6rem;
   }
+
+  .header-linkedin {
+    display: none;
+  }
 }
