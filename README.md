@@ -8,15 +8,20 @@ A modern, high-performance portfolio website built for **Vishal M** ([@vishalm11
 
 ## 🚀 Live Features
 
-- **High-Tech Aesthetic & Glassmorphism Design:** Subtle ambient grid mesh, dark/light theme switching with `localStorage` memory, and fluid typography.
-- **Dynamic Role Typing:** Highlighting core identities (Data Analyst, Aspiring Data Scientist, Power BI Specialist, Machine Learning Engineer).
+- **Swiss-Editorial Poster Architecture:** Pitch-black background (`#080808`), vibrant crimson accents (`#B91C1C`), giant wordmark typography (`Bebas Neue`), handwritten script highlights (`Caveat`), and clean functional body text (`Inter`).
+- **Official GitHub Profile Integration:** Displaying the user's authentic GitHub profile picture (`@vishalm111`) across the hero cutout and navbar brand identity.
+- **Dynamic Role Typing:** Highlighting core identities (Aspiring Data Scientist, Machine Learning Practitioner, Power BI Specialist, AI Systems Builder).
 - **Interactive Projects Showcase (10 Repositories):**
   - Instant category filtering (`All`, `🤖 Machine Learning & AI`, `📊 Data Analysis & EDA`, `📈 Power BI & Dashboards`).
   - Real-time search by technology tag, title, or keyword.
   - Deep Dive Architecture Modals for each project detailing the problem statement, signal conditioning pipeline, algorithms, and results.
+- **3-Column Bento Grid:**
+  - *Col 1:* Education timeline with crimson badges and core skill matrices.
+  - *Col 2:* 5-step numbered research and engineering workflow (`01`–`05`).
+  - *Col 3:* Solid dark-crimson philosophy card with signature quote.
 - **Interactive Data Telemetry Demos:**
-  1. *CropNow Dual-Probe Signal Stabilizer:* Real-time HTML5 Canvas visualizing noisy raw sensor telemetry spikes vs. EWMA and median filtered outputs.
-  2. *Healthcare Power BI Bookmark Navigator:* Interactive simulator mimicking single-page Power BI bookmark toggles for clinical telemetry (Heart, Blood, Lungs, Overall Health).
+  - *CropNow Dual-Probe Signal Stabilizer:* Real-time HTML5 Canvas visualizing noisy raw sensor telemetry spikes vs. EWMA and median filtered outputs.
+  - *Interactive India AQI Neural Estimator:* Interactive slider & city preset model predicting air quality categories in real-time.
 - **Hackathons & Milestones:** Highlighting participation in the **Gateways 2026 Hackathon** (*Crisis Command*, Team Neural Ninjas) and national Big Data air quality research.
 - **Mobile Responsive & Accessible:** Fully responsive across mobile, tablet, and widescreen monitors with semantic HTML5 elements.
 
