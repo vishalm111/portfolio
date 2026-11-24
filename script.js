@@ -1,11 +1,17 @@
 /**
  * VISHAL M — PORTFOLIO INTERACTIVITY SCRIPT
- * Handles theme toggling, project filtering, modal deep dives,
+ * Minimalist Monochrome Theme
+ * Handles project filtering, modal deep dives,
  * dynamic role typing, and interactive telemetry simulations.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThemeToggle();
+  // Clear any legacy dark-mode localStorage
+  try {
+    localStorage.removeItem('vm-portfolio-theme');
+    document.documentElement.removeAttribute('data-theme');
+  } catch (e) {}
+
   initDynamicTyping();
   initMobileMenu();
   initProjectsFilterAndSearch();
@@ -14,30 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBIDemo();
   initContactActions();
 });
-
-/* --------------------------------------------------------------------------
-   1. Theme Toggle (Dark / Light) with LocalStorage
-   -------------------------------------------------------------------------- */
-function initThemeToggle() {
-  const themeToggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-
-  // Retrieve saved theme or default to clean monochrome light theme
-  const savedTheme = localStorage.getItem('vm-portfolio-theme') || 'light';
-  html.setAttribute('data-theme', savedTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('vm-portfolio-theme', newTheme);
-      if (typeof window.redrawSensorChart === 'function') {
-        window.redrawSensorChart();
-      }
-    });
-  }
-}
 
 /* --------------------------------------------------------------------------
    2. Dynamic Typing Effect for Hero Roles
@@ -503,8 +485,7 @@ function initSensorDemo() {
     }
 
     // Draw Grid Lines
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    ctx.strokeStyle = isDark ? '#27272A' : '#E4E4E7';
+    ctx.strokeStyle = '#E4E4E7';
     ctx.lineWidth = 1;
     for (let v = 15; v <= 50; v += 10) {
       const y = getY(v);
@@ -513,25 +494,25 @@ function initSensorDemo() {
       ctx.lineTo(w - padX, y);
       ctx.stroke();
 
-      ctx.fillStyle = isDark ? '#71717A' : '#A1A1AA';
+      ctx.fillStyle = '#A1A1AA';
       ctx.font = '10px JetBrains Mono';
       ctx.fillText(`${v}%`, 8, y + 3);
     }
 
     // Draw Threshold Line (MADP 28%)
     const threshY = getY(thresholdVal);
-    ctx.strokeStyle = isDark ? '#71717A' : '#A1A1AA';
+    ctx.strokeStyle = '#A1A1AA';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(padX, threshY);
     ctx.lineTo(w - padX, threshY);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = isDark ? '#A1A1AA' : '#71717A';
+    ctx.fillStyle = '#71717A';
     ctx.fillText('MADP Limit (28%)', w - padX - 110, threshY - 6);
 
     // Draw Raw Noisy Sensor Line (Subtle Gray)
-    ctx.strokeStyle = isDark ? '#52525B' : '#A1A1AA';
+    ctx.strokeStyle = '#A1A1AA';
     ctx.lineWidth = 1.2;
     ctx.beginPath();
     for (let i = 0; i < pointsCount; i++) {
@@ -542,8 +523,8 @@ function initSensorDemo() {
     }
     ctx.stroke();
 
-    // Draw Stabilized Filtered Line (Strong Charcoal / White)
-    ctx.strokeStyle = isDark ? '#F4F4F5' : '#18181B';
+    // Draw Stabilized Filtered Line (Solid Charcoal Black)
+    ctx.strokeStyle = '#18181B';
     ctx.lineWidth = 2.4;
     ctx.beginPath();
     for (let i = 0; i < pointsCount; i++) {
@@ -554,8 +535,6 @@ function initSensorDemo() {
     }
     ctx.stroke();
   }
-
-  window.redrawSensorChart = drawChart;
 
   generateTelemetryData();
 
@@ -575,33 +554,33 @@ function initBIDemo() {
   const MODULES_DATA = {
     heart: {
       kpis: [
-        { title: 'Average Heart Rate', val: '74 BPM', sub: 'Normal Sinus Rhythm', color: 'text-cyan' },
-        { title: 'Systolic / Diastolic', val: '122 / 81 mmHg', sub: 'Optimal Vascular Pressure', color: 'text-indigo' },
-        { title: 'Arrhythmia Risk Score', val: 'Low (4.2%)', sub: '10-Day Event Horizon', color: 'text-emerald' }
+        { title: 'Average Heart Rate', val: '74 BPM', sub: 'Normal Sinus Rhythm' },
+        { title: 'Systolic / Diastolic', val: '122 / 81 mmHg', sub: 'Optimal Vascular Pressure' },
+        { title: 'Arrhythmia Risk Score', val: 'Low (4.2%)', sub: '10-Day Event Horizon' }
       ],
       insight: '<strong>DAX Calculated Insight:</strong> 93.8% of patients with regular cardio telemetry maintained blood pressure within target clinical boundaries.'
     },
     blood: {
       kpis: [
-        { title: 'Mean Fasting Glucose', val: '98 mg/dL', sub: 'Euglycemic Baseline', color: 'text-emerald' },
-        { title: 'Hemoglobin A1c', val: '5.4%', sub: 'Pre-Diabetes Safe Zone', color: 'text-cyan' },
-        { title: 'Total Cholesterol', val: '184 mg/dL', sub: 'LDL/HDL Ratio: 2.1', color: 'text-indigo' }
+        { title: 'Mean Fasting Glucose', val: '98 mg/dL', sub: 'Euglycemic Baseline' },
+        { title: 'Hemoglobin A1c', val: '5.4%', sub: 'Pre-Diabetes Safe Zone' },
+        { title: 'Total Cholesterol', val: '184 mg/dL', sub: 'LDL/HDL Ratio: 2.1' }
       ],
       insight: '<strong>DAX Calculated Insight:</strong> Dynamic cohort slicers identify a 14.2% drop in glycemic spikes following continuous glucose monitoring interventions.'
     },
     lungs: {
       kpis: [
-        { title: 'SpO2 Oxygen Saturation', val: '98.5%', sub: 'Ambient Room Air', color: 'text-cyan' },
-        { title: 'FEV1 / FVC Ratio', val: '0.82', sub: 'Unrestricted Airway', color: 'text-emerald' },
-        { title: 'Smoker Cohort Gap', val: '-18.4%', sub: 'Respiratory Peak Variance', color: 'text-indigo' }
+        { title: 'SpO2 Oxygen Saturation', val: '98.5%', sub: 'Ambient Room Air' },
+        { title: 'FEV1 / FVC Ratio', val: '0.82', sub: 'Unrestricted Airway' },
+        { title: 'Smoker Cohort Gap', val: '-18.4%', sub: 'Respiratory Peak Variance' }
       ],
       insight: '<strong>DAX Calculated Insight:</strong> Active smokers exhibit a statistically significant 18.4% reduction in forced vital capacity compared to non-smokers.'
     },
     overall: {
       kpis: [
-        { title: 'Cohort Adherence Index', val: '91.3%', sub: 'Active Monitoring Protocol', color: 'text-emerald' },
-        { title: 'Preventive Alert Rate', val: '2.8 / 100 pt', sub: 'Early Intervention Flag', color: 'text-cyan' },
-        { title: 'Length of Stay Reduction', val: '-1.4 Days', sub: 'Optimized Telemetry Care', color: 'text-indigo' }
+        { title: 'Cohort Adherence Index', val: '91.3%', sub: 'Active Monitoring Protocol' },
+        { title: 'Preventive Alert Rate', val: '2.8 / 100 pt', sub: 'Early Intervention Flag' },
+        { title: 'Length of Stay Reduction', val: '-1.4 Days', sub: 'Optimized Telemetry Care' }
       ],
       insight: '<strong>DAX Calculated Insight:</strong> Multi-system bookmark integration cut clinical dashboard navigation time by 68% for attending medical officers.'
     }
@@ -621,7 +600,7 @@ function initBIDemo() {
         kpisHtml += `
           <div class="kpi-card">
             <span class="kpi-title">${k.title}</span>
-            <span class="kpi-value ${k.color}">${k.val}</span>
+            <span class="kpi-value">${k.val}</span>
             <span class="kpi-subtitle">${k.sub}</span>
           </div>
         `;
