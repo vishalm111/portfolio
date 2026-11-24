@@ -224,7 +224,16 @@ button, input, textarea, select {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
+}
+
+.logo-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--bg-crimson);
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .logo-symbol {
@@ -465,7 +474,8 @@ button, input, textarea, select {
   height: 100%;
   object-fit: cover;
   background-color: #171717;
-  filter: grayscale(30%) contrast(110%);
+  filter: none;
+  display: block;
 }
 
 .portrait-badge {
@@ -1014,8 +1024,74 @@ button, input, textarea, select {
    -------------------------------------------------------------------------- */
 .demos-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 1.5rem;
+}
+
+.aqi-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.aqi-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.aqi-slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.aqi-range {
+  width: 100%;
+  accent-color: var(--bg-crimson);
+  cursor: pointer;
+}
+
+.aqi-city-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.aqi-city-btn {
+  background: var(--bg-pitch);
+  border: 1px solid var(--border-dark);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.aqi-city-btn:hover, .aqi-city-btn.active {
+  border-color: var(--border-crimson);
+  color: var(--text-white);
+  background: rgba(185, 28, 28, 0.15);
+}
+
+.aqi-gauge-bar {
+  width: 100%;
+  height: 6px;
+  background: #262626;
+  position: relative;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.aqi-gauge-fill {
+  height: 100%;
+  background: var(--bg-crimson);
+  transition: width 0.2s ease, background-color 0.2s ease;
 }
 
 .demo-card {
