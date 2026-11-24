@@ -1,0 +1,82 @@
+# Vishal M — Professional Data Analyst & Data Scientist Portfolio
+
+A modern, high-performance portfolio website built for **Vishal M** ([@vishalm111](https://github.com/vishalm111)), showcasing 10+ real-world repositories covering Machine Learning, Deep Learning (ANNs), Exploratory Data Analysis, Microsoft Power BI, and Multi-Agent AI systems.
+
+![Portfolio Preview](assets/avatar.png)
+
+---
+
+## 🚀 Live Features
+
+- **High-Tech Aesthetic & Glassmorphism Design:** Subtle ambient grid mesh, dark/light theme switching with `localStorage` memory, and fluid typography.
+- **Dynamic Role Typing:** Highlighting core identities (Data Analyst, Aspiring Data Scientist, Power BI Specialist, Machine Learning Engineer).
+- **Interactive Projects Showcase (10 Repositories):**
+  - Instant category filtering (`All`, `🤖 Machine Learning & AI`, `📊 Data Analysis & EDA`, `📈 Power BI & Dashboards`).
+  - Real-time search by technology tag, title, or keyword.
+  - Deep Dive Architecture Modals for each project detailing the problem statement, signal conditioning pipeline, algorithms, and results.
+- **Interactive Data Telemetry Demos:**
+  1. *CropNow Dual-Probe Signal Stabilizer:* Real-time HTML5 Canvas visualizing noisy raw sensor telemetry spikes vs. EWMA and median filtered outputs.
+  2. *Healthcare Power BI Bookmark Navigator:* Interactive simulator mimicking single-page Power BI bookmark toggles for clinical telemetry (Heart, Blood, Lungs, Overall Health).
+- **Hackathons & Milestones:** Highlighting participation in the **Gateways 2026 Hackathon** (*Crisis Command*, Team Neural Ninjas) and national Big Data air quality research.
+- **Mobile Responsive & Accessible:** Fully responsive across mobile, tablet, and widescreen monitors with semantic HTML5 elements.
+
+---
+
+## 📂 Project Structure
+
+```
+Portfolio/
+├── index.html        # Semantic HTML5 architecture & markup
+├── style.css         # Modern CSS custom properties, glassmorphism, responsive grid
+├── script.js         # Interactive filtering, search, modal dialogs, and canvas demos
+├── assets/
+│   └── avatar.png    # High-resolution profile avatar
+└── README.md         # Documentation & deployment guide
+```
+
+---
+
+## 🛠️ Featured Repositories
+
+| Project | Domain | Technologies |
+| :--- | :--- | :--- |
+| **[CropNow](https://github.com/vishalm111/CropNow)** | IoT Agricultural Intelligence | Python, FastAPI, PyTorch (GRU), XGBoost, React 19, Recharts |
+| **[Crisis Command](https://github.com/vishalm111/Crisis_Command_Hackathon)** | Gateways '26 Hackathon | JavaScript, Multi-Agent AI, Decision Support, Incident Triage |
+| **[Healthcare Analytics](https://github.com/vishalm111/Healthcare-Analytics-Dashboard)** | Business Intelligence | Microsoft Power BI, DAX Measures, Slicers, Bookmarks |
+| **[AQI India AI Hotspots](https://github.com/vishalm111/AQI-India-AI-Hotspot-Analysis)** | Big Data & Deep Learning | 235K+ Records, Python, Deep Learning, Pandas, Seaborn |
+| **[Customer Churn ANN](https://github.com/vishalm111/Customer-Churn-Prediction-ANN)** | Deep Learning | Artificial Neural Networks, Dropout, Batch Normalization |
+| **[FRIDAY AI Assistant](https://github.com/vishalm111/FRIDAY-AI-Assistant)** | Voice & Generative AI | React, Node.js, Groq LLM API, Web Speech API |
+| **[Loan Approval ML](https://github.com/vishalm111/Loan-Approval-Prediction-ML)** | Supervised Classification | Scikit-Learn, Random Forest, Logistic Regression |
+| **[Medical Insurance](https://github.com/vishalm111/Medical-Insurance-Regression)** | Statistical Regression | Feature Selection, EDA, Multicollinearity (VIF) |
+| **[Netflix Catalog EDA](https://github.com/vishalm111/Netflix-EDA)** | Exploratory Analysis | Pandas, Seaborn, Content Acquisition Trends |
+| **[Titanic Survival EDA](https://github.com/vishalm111/Titanic-EDA)** | Demographic Analytics | Statistical Pipeline, Title Engineering, Survival Odds |
+
+---
+
+## 💻 How to View & Run Locally
+
+### Option 1: Open Directly in Browser
+Simply double-click `index.html` to open it in any web browser (Chrome, Edge, Firefox, Safari).
+
+### Option 2: Run with Local HTTP Server
+```bash
+# Using Python
+python -m http.server 8000
+
+# Or using Node.js
+npx serve .
+```
+Then visit `http://localhost:8000` in your browser.
+
+---
+
+## 🌐 How to Deploy (Free in 2 Minutes)
+
+### Deploy to GitHub Pages:
+1. Push this directory to a GitHub repository named `portfolio` (or `vishalm111.github.io`).
+2. Go to **Settings** > **Pages** in the repository.
+3. Under **Branch**, select `main` and root `/`, then click **Save**.
+4. Your website will be live at `https://vishalm111.github.io/portfolio/`!
+
+### Deploy to Vercel or Netlify:
+- Drag-and-drop the `Portfolio` folder into [Netlify Drop](https://app.netlify.com/drop) or import from GitHub on [Vercel](https://vercel.com).
