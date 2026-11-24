@@ -22,8 +22,8 @@ function initThemeToggle() {
   const themeToggle = document.getElementById('themeToggle');
   const html = document.documentElement;
 
-  // Retrieve saved theme or default to dark
-  const savedTheme = localStorage.getItem('vm-portfolio-theme') || 'dark';
+  // Retrieve saved theme or default to clean monochrome light theme
+  const savedTheme = localStorage.getItem('vm-portfolio-theme') || 'light';
   html.setAttribute('data-theme', savedTheme);
 
   if (themeToggle) {
@@ -32,6 +32,9 @@ function initThemeToggle() {
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('vm-portfolio-theme', newTheme);
+      if (typeof window.redrawSensorChart === 'function') {
+        window.redrawSensorChart();
+      }
     });
   }
 }
@@ -500,7 +503,8 @@ function initSensorDemo() {
     }
 
     // Draw Grid Lines
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    ctx.strokeStyle = isDark ? '#27272A' : '#E4E4E7';
     ctx.lineWidth = 1;
     for (let v = 15; v <= 50; v += 10) {
       const y = getY(v);
@@ -509,26 +513,26 @@ function initSensorDemo() {
       ctx.lineTo(w - padX, y);
       ctx.stroke();
 
-      ctx.fillStyle = '#6b7280';
+      ctx.fillStyle = isDark ? '#71717A' : '#A1A1AA';
       ctx.font = '10px JetBrains Mono';
       ctx.fillText(`${v}%`, 8, y + 3);
     }
 
     // Draw Threshold Line (MADP 28%)
     const threshY = getY(thresholdVal);
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = isDark ? '#71717A' : '#A1A1AA';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(padX, threshY);
     ctx.lineTo(w - padX, threshY);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillText('MADP Limit (28%)', w - padX - 105, threshY - 6);
+    ctx.fillStyle = isDark ? '#A1A1AA' : '#71717A';
+    ctx.fillText('MADP Limit (28%)', w - padX - 110, threshY - 6);
 
-    // Draw Raw Noisy Sensor Line
-    ctx.strokeStyle = '#f43f5e';
-    ctx.lineWidth = 1.5;
+    // Draw Raw Noisy Sensor Line (Subtle Gray)
+    ctx.strokeStyle = isDark ? '#52525B' : '#A1A1AA';
+    ctx.lineWidth = 1.2;
     ctx.beginPath();
     for (let i = 0; i < pointsCount; i++) {
       const x = getX(i);
@@ -538,9 +542,9 @@ function initSensorDemo() {
     }
     ctx.stroke();
 
-    // Draw Stabilized Filtered Line
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2.8;
+    // Draw Stabilized Filtered Line (Strong Charcoal / White)
+    ctx.strokeStyle = isDark ? '#F4F4F5' : '#18181B';
+    ctx.lineWidth = 2.4;
     ctx.beginPath();
     for (let i = 0; i < pointsCount; i++) {
       const x = getX(i);
@@ -550,6 +554,8 @@ function initSensorDemo() {
     }
     ctx.stroke();
   }
+
+  window.redrawSensorChart = drawChart;
 
   generateTelemetryData();
 
